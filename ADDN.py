@@ -66,7 +66,7 @@ class ADDN():
         self.discriminator.compile(loss='mse', optimizer=optimizer, metrics=['accuracy'])
         # Build the generator
         # self.generator = get_densenet(self.config['input_shape'])
-        self.generator =get_(self.config['input_shape'])
+        self.generator =get_generator(self.config['input_shape'])
         img = Input(shape=self.config['input_shape'])
         label = Input(shape=self.config['input_shape'])
         seg = self.generator(img)
