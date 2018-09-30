@@ -19,7 +19,7 @@ epochs: how many iterations or steps to train
 sample_interval: how many steps to perform a visulization  
 
 ### Data
-data_path: data path
+data_path: data path  
 img_trn, msk_trn: .npy file for training data  
 img_val, msk_val: .npy file for validation  
 img_tst: .npy file for testing   
