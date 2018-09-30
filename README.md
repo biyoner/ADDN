@@ -16,14 +16,14 @@ All network hyperparameters are configured in ADDN.py.
 
 ### Training
 epochs: how many iterations or steps to train  
-sample_interval: how many steps to save perform a visulization  
+sample_interval: how many steps to perform a visulization  
 
 ### Data
-data_path: data saved  
-train_data: .npy file for training  
-valid_data: .npy file for validation 
-test_data: .npy file for testing   
-input_shape, output_shape: height, width and channl of the input image and output image  
+data_path: data path
+img_trn, msk_trn: .npy file for training data  
+img_val, msk_val: .npy file for validation  
+img_tst: .npy file for testing   
+input_shape, output_shape: height, width and channl of the input image and output image    
 patch: PatchGAN output   
 
 ## Training and Testing 
@@ -35,20 +35,29 @@ python ADDN train \
 ```
 The training of ADDN for semantic segmentation will start.
 
-### Training and Testing
+### Training process visualization
 We employ tensorboard to visualize the training process.
 ```
 tensorboard --logdir=Graph/
 ```
 The segmentation results including training and validation losses are available in tensorboard.
 
+### Validation
+Choose the validation mode:
+```
+python ADDN.py \
+       --val \  
+       --weight checkpoints/ADDN/weights_loss_trn.weights
+```
+
 ### Testing and prediction
 Choose the test mode:
 ```
 python ADDN.py \
-       --submit
+       --submit \  
+       --weight checkpoints/ADDN/weights_loss_trn.weights
 ```
 
-## To Do 
-1. download data
-2. 
+## Use ADDN
+1. Data preparation  
+2. Change the generator and discriminator network to your own ones
